@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Header({ category }) {
+export default function Header({ setCategory }) {
   return (
-    <header category={category}>
-      <h1>{category}</h1>
+    <header>
+      <h1>{setCategory}</h1>
     </header>
   )
 }
