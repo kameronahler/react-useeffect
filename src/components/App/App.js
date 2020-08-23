@@ -1,38 +1,37 @@
 import React, { useState, useEffect } from 'react'
+import Header from '../Header/Header'
 
 export default function App() {
-  const [resourceType, setResourceType] = useState('posts')
+  const [category, setCategory] = useState('posts')
   const [currentData, setCurrentData] = useState([])
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
+    fetch(`https://jsonplaceholder.typicode.com/${category}`)
       .then((response) => response.json())
       .then((json) => setCurrentData(json))
-  }, [resourceType])
+  }, [category])
 
   return (
     <section>
-      <header>
-        <h1>{resourceType}</h1>
-      </header>
+      <Header setCategory={category}></Header>
       <div>
         <button
           onClick={() => {
-            setResourceType('posts')
+            setCategory('posts')
           }}
         >
           Posts
         </button>
         <button
           onClick={() => {
-            setResourceType('users')
+            setCategory('users')
           }}
         >
           Users
         </button>
         <button
           onClick={() => {
-            setResourceType('comments')
+            setCategory('comments')
           }}
         >
           Comments
