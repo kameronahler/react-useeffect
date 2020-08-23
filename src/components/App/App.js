@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../Header/Header'
 import ButtonSet from '../ButtonSet/ButtonSet'
+import DisplayList from '../DisplayList/DisplayList'
 
 export default function App() {
   const [category, setCategory] = useState('posts')
@@ -14,18 +15,13 @@ export default function App() {
 
   const buttonSetsCategory = (e) => {
     setCategory(e.currentTarget.textContent)
-    console.log(e.currentTarget.textContent)
   }
 
   return (
     <section>
       <Header setCategory={category}></Header>
       <ButtonSet onClickForButtonSet={buttonSetsCategory} />
-      <ul>
-        {currentData.map((el) => {
-          return <li key={el.id}>{JSON.stringify(el.id)}</li>
-        })}
-      </ul>
+      <DisplayList currentData={currentData} />
     </section>
   )
 }
