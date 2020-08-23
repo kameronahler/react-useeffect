@@ -16,7 +16,11 @@ export default function App() {
       <button onClick={() => {setResourceType('users')}}>Users</button>
       <button onClick={() => {setResourceType('comments')}}>Comments</button>
       <h1>{resourceType}</h1>
-      <div>{currentData.length}</div>
+      <div>
+        {currentData.map(el => {
+          return <pre key={el.id}>{JSON.stringify(el)}</pre>
+        })}
+      </div>
     </div>
   );
 }
