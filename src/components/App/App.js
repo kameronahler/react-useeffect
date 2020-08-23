@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../Header/Header'
+import Button from '../Button/Button'
 
 export default function App() {
   const [category, setCategory] = useState('posts')
@@ -11,31 +12,17 @@ export default function App() {
       .then((json) => setCurrentData(json))
   }, [category])
 
+  const buttonSetsCategory = (e) => {
+    setCategory(e.currentTarget.textContent)
+  }
+
   return (
     <section>
       <Header setCategory={category}></Header>
       <div>
-        <button
-          onClick={() => {
-            setCategory('posts')
-          }}
-        >
-          Posts
-        </button>
-        <button
-          onClick={() => {
-            setCategory('users')
-          }}
-        >
-          Users
-        </button>
-        <button
-          onClick={() => {
-            setCategory('comments')
-          }}
-        >
-          Comments
-        </button>
+        <Button onClick={buttonSetsCategory} title={'posts'} />
+        <Button onClick={buttonSetsCategory} title={'users'} />
+        <Button onClick={buttonSetsCategory} title={'comments'} />
       </div>
       <ul>
         {currentData.map((el) => {
