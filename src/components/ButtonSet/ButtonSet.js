@@ -5,13 +5,13 @@ export default function ButtonSet(props) {
   return (
     <ul>
       <li>
-        <Button onClick={props.onClickForButtonSet} title={'posts'} />
+        <Button action={props.action} title={'posts'} />
       </li>
       <li>
-        <Button onClick={props.onClickForButtonSet} title={'users'} />
+        <Button action={props.action} title={'users'} />
       </li>
       <li>
-        <Button onClick={props.onClickForButtonSet} title={'comments'} />
+        <Button action={props.action} title={'comments'} />
       </li>
     </ul>
   )

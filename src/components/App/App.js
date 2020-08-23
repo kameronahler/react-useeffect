@@ -19,8 +19,8 @@ export default function App() {
 
   return (
     <section>
-      <Header setCategory={category}></Header>
-      <ButtonSet onClickForButtonSet={buttonSetsCategory} />
+      <Header category={category} />
+      <ButtonSet action={buttonSetsCategory} />
       <DisplayList currentData={currentData} />
     </section>
   )
