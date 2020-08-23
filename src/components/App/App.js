@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 export default function App() {
   const [resourceType, setResourceType] = useState('posts')
+  const [currentData, setCurrentData] = useState([])
 
   useEffect( () => {
     fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
       .then(response => response.json())
-      .then(json => console.log(json))
+      .then(json => setCurrentData(json))
   }, [resourceType])
 
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <button onClick={() => {setResourceType('users')}}>Users</button>
       <button onClick={() => {setResourceType('comments')}}>Comments</button>
       <h1>{resourceType}</h1>
+      <div>{currentData.length}</div>
     </div>
   );
 }
