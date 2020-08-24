@@ -5,7 +5,6 @@ import SectionWidth from '../SectionWidth/SectionWidth'
 export default function App() {
   return (
     <>
-      <SectionWidth />
       <SectionJSON />
     </>
   )
